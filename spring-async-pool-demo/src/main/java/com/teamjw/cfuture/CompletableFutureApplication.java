@@ -30,6 +30,7 @@ public class CompletableFutureApplication {
 	public static class CFutureController {
 		
 		@Autowired MyService myService;
+		//Netty 기반의 클라이언트를 추가하며, Netty 쓰레드는 1개로 지정 한다.
 		AsyncRestTemplate rt = new AsyncRestTemplate(new Netty4ClientHttpRequestFactory(new NioEventLoopGroup(1)));
 		// AsycRestTemplate 는 별도의 쓰레드를 생성하여 비동기 처리 하는 구조. 여러개의 요청이 들어오면 요청 개수만큼의 쓰레드가 생성되어 처리된다.
 		//AsyncRestTemplate rt = new AsyncRestTemplate();
